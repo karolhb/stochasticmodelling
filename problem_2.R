@@ -24,10 +24,8 @@ print(expectedPoisson)
 
 print("b)")
 expC = accExp/N
-expZ = ((accPoisson/N) * (accExp/N))
 varC = (accExp/N)^2
 varN = expectedPoisson
 expN = expectedPoisson
+expZ = (expC * expN)
 varZ = varC*expN+expC^2*varN
-print(expectedExp)
-print(varTot)
