@@ -1,5 +1,6 @@
 #Assignment 2 a
 
+
 # =====================================================================================
 #     PT I) Calculation of probabilities &  MC-Simulations
 # =====================================================================================
@@ -61,15 +62,15 @@ sprintf("Probability of having 100 or more claims is %f percent", percentageClai
 
 
 
-tEnd = 50
+tEnd = 59
 lambda = 1.5
 eventVector <- list()
 timeVector <- list()
 
 
 colorz <- c("blue","green", "red","cyan", "coral", "chocolate", "darkorange","goldenrod", "gray", "deeppink")
-
-plot(NULL, NULL, xlim = c(0, tEnd), ylim = c(0, 110), xlab = "Time", ylab = "Claims", main = "Realizations")
+text = c("1","2", "3","4","5","6","7","8","9","10")
+plot(NULL, NULL, xlim = c(0, tEnd), ylim = c(0, 110),cex.lab = 1, cex.axis = 1, xlab = "Time", ylab = "Claims", main = "Realizations")
 # Run 10 realizations
 for (k in 1:10){
   nP = rpois(1, lambda = lambda*tEnd)
@@ -80,6 +81,15 @@ for (k in 1:10){
     lines(tVals[i:(i+1)],   col = colorz[k], type = "l", rep(xVals[i],2))
   }
 }
+grid( col = "lightgray", lty = "dotted",
+     lwd = par("lwd"), equilogs = TRUE)
+legend("right",
+       legend = text,
+       fill = colorz,
+       lty = 1,
+       cex = 0.6,
+       box.lty=0
+)
 
 
 
