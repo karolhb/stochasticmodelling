@@ -1,7 +1,8 @@
 #Assignment 2 a
 
-
-
+# =====================================================================================
+#     PT I) Calculation of probabilities &  MC-Simulations
+# =====================================================================================
 tEnd = 59
 l = 1.5 #Renamed to l, in case lambda is a restricted keyword
 
@@ -51,4 +52,38 @@ percentageClaimOver100 <- counter/n * 100
 
 
 sprintf("Probability of having 100 or more claims is %f percent", percentageClaimOver100 )
+
+#2a) 
+# =========================================================================================
+# Realizations
+#==========================================================================================
+
+
+
+
+tEnd = 50
+lambda = 1.5
+eventVector <- list()
+timeVector <- list()
+
+
+colorz <- c("blue","green", "red","cyan", "coral", "chocolate", "darkorange","goldenrod", "gray", "deeppink")
+
+plot(NULL, NULL, xlim = c(0, tEnd), ylim = c(0, 110), xlab = "Time", ylab = "Claims", main = "Realizations")
+# Run 10 realizations
+for (k in 1:10){
+  nP = rpois(1, lambda = lambda*tEnd)
+  tVals = runif(nP, min = 0, max = tEnd)
+  tVals = c(0, sort(tVals), tEnd)
+  xVals = c(0:nP, nP)
+  for(i in 1:(length(xVals)-1)){
+    lines(tVals[i:(i+1)],   col = colorz[k], type = "l", rep(xVals[i],2))
+  }
+}
+
+
+
+
+
+
 
