@@ -13,6 +13,7 @@ gamma = 0.2
 P = matrix(c(1-beta, beta, 0, 0, 1-gamma, gamma, 0, 0, 1), nrow = 3,byrow=TRUE)
 
 # y is an array to keep the results
+# each column contains Sn, In and Rn for 1 step
 y = matrix('numeric', nrow = 3, ncol = 0)
 y = cbind(y, c(Sn, In, Rn))
 
@@ -25,17 +26,6 @@ for (n in 1:N) {
 
   Rn = Rn + RnInc
   In = In - RnInc
-  
-  #print(rbinom(1, Sn, beta))
-  #print(rbinom(1, In, gamma))
-  # print("beta:")
-  # print(beta)
-  # print("Sn:")
-  # print(Sn)
-  # print("In:")
-  # print(In)
-  # print("Rn:")
-  # print(Rn)
   
   # add result to array
   y = cbind(y, c(Sn, In, Rn))

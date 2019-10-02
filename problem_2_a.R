@@ -51,8 +51,7 @@ counter <-0
 
 percentageClaimOver100 <- counter/n * 100
 
-
-sprintf("Probability of having 100 or more claims is %f percent", percentageClaimOver100 )
+cat("Probability of having 100 or more claims is ", percentageClaimOver100, " percent")
 
 #2a) 
 # =========================================================================================

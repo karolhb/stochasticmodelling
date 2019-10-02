@@ -21,7 +21,7 @@ y = cbind(y, c(Sn, In, Rn))
 highestNumberVector<-list(1000)
 highestIndexVector<-list(1000)
 
-for (k in 1:1000){
+for (k in 1:100){
   #initialize the highest number and the corresponding index as 0 and 1,
   #respectively at each realization.
   
